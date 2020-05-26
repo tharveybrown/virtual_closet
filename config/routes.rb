@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :outfits
+  resources :closets
   resources :users
   resources :clothes
   get '/login' => 'sessions#new'
