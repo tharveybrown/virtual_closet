@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VirtualCloset</title>
+    <title>ImmersiveRailsAssessment</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
   </head>
 
   <body>
-    <%= yield %>
+  
+    <nav class="navbar navbar-fixed-top navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Late Show</a>
+        </div>
+        <ul class="nav navbar-nav">
+          
+            <li><%= link_to "Closet", "/appearances/new"  %></li>
+            <li><%= link_to "Inspiration", "/guests"  %></li>
+            <li><%= link_to "New Fit", "/episodes"  %></li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <div class="container-fluid" style="margin-top:80px">
+      <div class="row">
+        <div class="col-lg-9">
+          
+          <%= yield %>
+        </div>
+        
+      </div><!--/span-->
+    </div><!--/row-->
+
+    
+
+    
   </body>
 </html>
