@@ -9,7 +9,7 @@ User.delete_all
 Closet.delete_all
 Clothe.delete_all
 Outfit.delete_all
-ClotheOutfit.delete_all
+ClothesOutfit.delete_all
 
 user = User.create(email: "tharveybrown@gmail.com", password: "Welcome1")
 closet = Closet.create(user_id: user.id)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_215120) do
+ActiveRecord::Schema.define(version: 2020_05_26_220627) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,10 +44,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_215120) do
 #   Unknown type 'belongs_to' for column 'closet_id'
 
   create_table "clothes_outfits", id: false, force: :cascade do |t|
-    t.integer "clothe_id", null: false
     t.integer "outfit_id", null: false
-    t.index ["clothe_id", "outfit_id"], name: "index_clothes_outfits_on_clothe_id_and_outfit_id"
-    t.index ["outfit_id", "clothe_id"], name: "index_clothes_outfits_on_outfit_id_and_clothe_id"
+    t.integer "clothe_id", null: false
   end
 
 # Could not dump table "outfits" because of following StandardError
