@@ -1,4 +1,5 @@
 <%= form_for @clothe do |f| %>
+  <%= f.hidden_field :closet_id, :value => @clothe.closet_id %>
   <%= f.label "Clothing Pic" %>
   <%= f.file_field :clothing_pic %>
   <%= f.submit "create clothing" %>

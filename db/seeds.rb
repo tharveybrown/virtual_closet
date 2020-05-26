@@ -19,4 +19,4 @@ c2 = Clothe.create(closet_id: closet.id)
 o = Outfit.create(closet_id: closet.id)
 # o.clothes << c 
 # o.clothes << c 
-# o.clothes << c2
+o.clothes << c2

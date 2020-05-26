@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :closets
   resources :users
   resources :clothes
+  get '/closet' => 'closets#show'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'

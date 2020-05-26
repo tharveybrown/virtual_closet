@@ -1,0 +1,6 @@
+<% @closet.clothes.each do |clothe| %>
+
+<% if clothe.clothing_pic.attached?  %>
+  <img src="<%=(url_for(clothe.clothing_pic))%>">
+<% end  %>
+<% end %>
