@@ -1,4 +1,3 @@
 class User < ApplicationRecord
-  def new 
-  end
+  has_secure_password
 end

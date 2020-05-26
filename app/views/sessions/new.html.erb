@@ -1,0 +1,22 @@
+<div class="card login-form">
+  <div class="card-body">
+    <%= form_for @user, :html => {:class => 'form-signin'}, url: login_path, method: :post do |f| %>
+    <div class="card-header">
+      <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+    </div>
+    <div class="form-group">
+      <%= f.label :email%>
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password%>
+      <%= f.password_field :password, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "log in", :class => "btn btn-primary" %>
+      Or <%= link_to(controller: 'users', action: 'new') { 'sign up' } %>
+    <% end %>
+    
+  </div>
+</div>
