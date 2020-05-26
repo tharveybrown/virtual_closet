@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_195451) do
+ActiveRecord::Schema.define(version: 2020_05_26_215120) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,14 +33,25 @@ ActiveRecord::Schema.define(version: 2020_05_26_195451) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "clothes", force: :cascade do |t|
-    t.string "type"
-    t.string "size"
-    t.string "season"
-    t.string "color"
-    t.string "pattern"
-    t.string "style"
+  create_table "closets", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_closets_on_user_id"
   end
+
+# Could not dump table "clothes" because of following StandardError
+#   Unknown type 'belongs_to' for column 'closet_id'
+
+  create_table "clothes_outfits", id: false, force: :cascade do |t|
+    t.integer "clothe_id", null: false
+    t.integer "outfit_id", null: false
+    t.index ["clothe_id", "outfit_id"], name: "index_clothes_outfits_on_clothe_id_and_outfit_id"
+    t.index ["outfit_id", "clothe_id"], name: "index_clothes_outfits_on_outfit_id_and_clothe_id"
+  end
+
+# Could not dump table "outfits" because of following StandardError
+#   Unknown type 'belongs_to' for column 'closet_id'
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -50,4 +61,5 @@ ActiveRecord::Schema.define(version: 2020_05_26_195451) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "closets", "users"
 end
