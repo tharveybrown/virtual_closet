@@ -32,6 +32,20 @@ class ClothesController < ApplicationController
     # redirect_to :controller => 'closets', :action => 'show' 
   end
 
+  def update
+    
+    
+    if @clothe = Clothe.update(clothe_params)
+      flash[:alert] = "Success."
+      redirect_to clothe_path(@clothe)
+    else
+      flash[:error] = @clothe.errors.full_messages
+      flash[:alert] = "Failed."
+      render :edit
+    end
+    
+  end
+
   def clothe_params
     params.require(:clothe).permit(
       :closet_id,

@@ -1,4 +1,33 @@
 
-<% if @clothe.clothing_pic.attached?  %>
-  <img src="<%=(url_for(@clothe.clothing_pic))%>">
-<% end  %>
+
+  <div class="row">
+    <div class="d-flex justify-content-center card-clothing">
+        <div class="card" style="width: inherit;">
+          
+          <img class="card-img-top" src="<%=(url_for(@clothe.clothing_pic))%>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= @clothe.clothing_type %></h5>
+ 
+              <ul class="list-group list-group-flush">
+                <% if @clothe.style%>
+                  <li class="list-group-item">Style: <%= @clothe.style %></li>
+                <% end  %>
+
+                <% if @clothe.pattern%>
+                  <li class="list-group-item">Pattern: <%= @clothe.pattern %></li>
+                <% end  %>
+
+                <% if @clothe.season%>
+                  <li class="list-group-item">Season: <%= @clothe.season %></li>
+                <% end  %>
+              </ul>
+          </div>
+
+          <div class="card-footer text-center"> 
+            <%= button_to( "Edit Item", edit_clothe_path(@clothe.id), :method => :get, :class => "btn btn-primary" ) %>
+          </div>
+
+        </div>
+    </div>
+      
+  </div>
