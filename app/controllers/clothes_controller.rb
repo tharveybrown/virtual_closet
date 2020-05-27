@@ -34,16 +34,13 @@ class ClothesController < ApplicationController
 
   def update
     @clothe = Clothe.find(params[:id])
-
-    byebug
     if params[:clothe][:clothing_pic]
-      pic = params[:clothe].delete(:clothing_pic)
+      ActiveStorage::Attachment.find(@clothe.clothing_pic.id).purge
+      @clothe.clothing_pic.attach(params[:clothe][:clothing_pic])
+      params[:clothe].delete(:clothing_pic)
+
     end
     if @clothe = Clothe.update(clothe_params)
-      if pic
-        @clothe.clothing_pic.attach(pic)
-        @clothe.save
-      end
       flash[:alert] = "Success."
       redirect_to clothe_path(@clothe)
     else
