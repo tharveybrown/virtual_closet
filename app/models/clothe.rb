@@ -7,4 +7,13 @@ class Clothe < ApplicationRecord
   validates :clothing_type, presence: true
   validates :pattern, presence: true
   validates :style, presence: true
+
+  def self.random_shirt
+    self.select {|c| c.clothing_type == "shirt"}.sample
+  end
+  
+  def self.random_pants
+    self.select {|c| c.clothing_type == "pant"}.sample
+  end
+
 end
