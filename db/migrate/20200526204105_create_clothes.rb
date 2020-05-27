@@ -7,6 +7,7 @@ class CreateClothes < ActiveRecord::Migration[6.0]
       t.string :color 
       t.string :pattern
       t.string :style
+      t.belongs_to :closet, null: false, foreign_key: true
     end
   end
 end
