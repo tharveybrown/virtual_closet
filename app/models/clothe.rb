@@ -4,9 +4,12 @@ class Clothe < ApplicationRecord
   has_many :clothes_outfit
   has_many :outfits, through: :clothes_outfit
 
-  # def pic_attached
-  #  if @clothe.clothing_pic.attached?
-  #     <img src="<%=(url_for(@clothe.clothing_pic))%>">
-  #   end
-  # end
+  def self.random_shirt
+    self.select {|c| c.clothing_type == "shirt"}.sample
+  end
+  
+  def self.random_pants
+    self.select {|c| c.clothing_type == "pant"}.sample
+  end
+
 end

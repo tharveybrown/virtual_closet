@@ -21,3 +21,4 @@ o = Outfit.create(closet_id: closet.id)
 o.clothes << c 
 o.clothes << c 
 o.clothes << c2
+
