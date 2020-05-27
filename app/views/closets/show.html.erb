@@ -1,6 +1,9 @@
+<%= button_to "Add", new_clothe_path, 
+      :class => "btn btn-primary", :method => :get %>
 <% @closet.clothes.each do |clothe| %>
 
 <% if clothe.clothing_pic.attached?  %>
-  <img src="<%=(url_for(clothe.clothing_pic))%>">
+  <img src="<%=(url_for(clothe.clothing_pic))%>" width="200">
 <% end  %>
 <% end %>
+

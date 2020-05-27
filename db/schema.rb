@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_220627) do
+ActiveRecord::Schema.define(version: 2020_05_27_000117) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_220627) do
   end
 
 # Could not dump table "clothes" because of following StandardError
-#   Unknown type 'belongs_to' for column 'closet_id'
+#   Unknown type '' for column 'closet_id'
 
   create_table "clothes_outfits", id: false, force: :cascade do |t|
     t.integer "outfit_id", null: false

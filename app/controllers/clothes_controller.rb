@@ -18,14 +18,16 @@ class ClothesController < ApplicationController
   def create
     # byebug
     @clothe = Clothe.create(clothe_params)
+    @user.closet.clothes << @clothe
     redirect_to clothe_path(@clothe)
+
     # redirect_to :controller => 'closets', :action => 'show' 
   end
 
   def clothe_params
     params.require(:clothe).permit(
       :closet_id,
-      :type,
+      :clothing_type,
       :size,
       :season,
       :color,
