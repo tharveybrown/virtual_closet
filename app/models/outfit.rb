@@ -2,17 +2,15 @@ class Outfit < ApplicationRecord
   belongs_to :closet
   has_many :clothes_outfit
   has_many :clothes, through: :clothes_outfit
-  validates :clothes
-  validate :require_top
-  # accepts_nested_attributes_for :clothes
+  validate :require_top, :require_bottom
 
-  def 
 
   def self.random_outfit
     clothes = []
     clothes << Clothe.select {|c| c.clothing_type == "pant" || c.clothing_type == "jean" || c.clothing_type == "short"}.sample
     clothes << Clothe.select {|c| c.clothing_type == "t-shirt" || c.clothing_type == "top"}.sample
     @outfit = Outfit.new
+    @outfit.closet_id = current_user.closet.id
     @outfit.clothes = clothes
     @outfit.save
   end
