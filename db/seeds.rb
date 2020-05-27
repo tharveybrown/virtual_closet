@@ -5,18 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.delete_all
-Closet.delete_all
+ClothesOutfit.delete_all
 Clothe.delete_all
 Outfit.delete_all
-ClothesOutfit.delete_all
+Closet.delete_all
+User.delete_all
 
 user = User.create(email: "tharveybrown@gmail.com", password: "Welcome1")
 closet = Closet.create(user_id: user.id)
 
-c = Clothe.create(closet_id: closet.id)
-c2 = Clothe.create(closet_id: closet.id)
+c = Clothe.create(closet_id: closet.id, clothing_type: "shirt")
+c2 = Clothe.create(closet_id: closet.id, clothing_type: "pants")
 o = Outfit.create(closet_id: closet.id)
 # o.clothes << c 
 # o.clothes << c 
-# o.clothes << c2
+o.clothes << c2

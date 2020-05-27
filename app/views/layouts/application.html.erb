@@ -9,34 +9,29 @@
   </head>
 
   <body>
-  
-    <nav class="navbar navbar-fixed-top navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Virtual Closet</a>
-        </div>
-        <ul class="nav navbar-nav">
-          
-            <li><%= link_to "Closet", "/appearances/new"  %></li>
-            <li><%= link_to "Inspiration", "/guests"  %></li>
-            <li><%= link_to "New Fit", "/episodes"  %></li>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/closet">Closet <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/outfits">Outfits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Profile</a>
+          </li>
         </ul>
       </div>
     </nav>
-
-
-    <div class="container-fluid" style="margin-top:80px">
-      <div class="row">
-        <div class="col-lg-9">
-          
-          <%= yield %>
-        </div>
-        
-      </div><!--/span-->
-    </div><!--/row-->
-
     
-
-    
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+  
   </body>
-</html>

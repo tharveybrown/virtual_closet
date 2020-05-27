@@ -6,7 +6,8 @@ class ClothesController < ApplicationController
   end
 
   def new
-    @clothe = Clothe.new
+    @clothe = Clothe.new(closet_id: current_user.closet.id)
+    
   end
 
 
@@ -15,12 +16,24 @@ class ClothesController < ApplicationController
   end
 
   def create
+    # byebug
     @clothe = Clothe.create(clothe_params)
+    @user.closet.clothes << @clothe
     redirect_to clothe_path(@clothe)
+
+    # redirect_to :controller => 'closets', :action => 'show' 
   end
 
   def clothe_params
-    params.require(:clothe).permit(:clothing_pic)
+    params.require(:clothe).permit(
+      :closet_id,
+      :clothing_type,
+      :size,
+      :season,
+      :color,
+      :pattern,
+      :style,
+      :clothing_pic)
   end 
 
 end
