@@ -1,0 +1,31 @@
+<% if @outfit %>
+ 
+    <div class="row">
+        
+        <% @outfit.clothes.each do |c| %>
+        
+        <div class="col-md-4 d-flex align-items-stretch card-column">
+          <div class="card" style="width: inherit;">
+            
+            <div class="card-header">
+                <% if c.clothing_type  %>
+                    <%= c.clothing_type %>
+                <% end  %>
+            </div>  
+
+            <div class="card-body">
+                <% if c.clothing_pic.attached?  %>
+                    <img class="card-img-top" src="<%=(url_for(c.clothing_pic))%>" alt="Card image cap">
+                <% end  %>
+            </div>
+
+            <div class="card-footer text-center"> 
+                <%= button_to( "View Item", clothe_path(c.id), :method => :get, :class => "btn btn-primary" ) %>
+            </div>
+
+        </div>
+    </div>
+    <% end  %>
+</div>
+<% end  %>
+  
