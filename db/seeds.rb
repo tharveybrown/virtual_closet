@@ -17,6 +17,7 @@ closet = Closet.create(user_id: user.id)
 c = Clothe.create(closet_id: closet.id, clothing_type: "shirt")
 c2 = Clothe.create(closet_id: closet.id, clothing_type: "pants")
 o = Outfit.create(closet_id: closet.id)
-# o.clothes << c 
-# o.clothes << c 
+
+o.clothes << c 
+o.clothes << c 
 o.clothes << c2
