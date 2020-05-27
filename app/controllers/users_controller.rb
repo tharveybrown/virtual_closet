@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     redirect_to controller: 'welcome', action: 'home'
   end
 
+  def profile
+  end
+  
   private
 
   def user_params

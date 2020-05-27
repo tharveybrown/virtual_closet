@@ -19,7 +19,15 @@ class ClothesController < ApplicationController
     # byebug
     @clothe = Clothe.create(clothe_params)
     @user.closet.clothes << @clothe
-    redirect_to clothe_path(@clothe)
+    
+    if @clothe.save 
+      flash[:alert] = "Success."
+      redirect_to clothe_path(@clothe)
+    else
+      flash[:error] = @clothe.errors.full_messages
+      flash[:alert] = "Failed."
+      render :new
+    end
 
     # redirect_to :controller => 'closets', :action => 'show' 
   end

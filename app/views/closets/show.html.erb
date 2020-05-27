@@ -4,7 +4,7 @@
 </div>
 
 <% if @closet %>
-  <% rows = @closet.clothes.each_slice(3).to_a %>
+  <% rows = @closet.clothes.each_slice(4).to_a %>
 
   <% count = 0 %>
 
@@ -12,19 +12,36 @@
     <div class="row">
         <% rows[count].each do |clothe| %>
         
-        <div class="col-md-4 d-flex align-items-stretch card-column">
+        <div class="col-md-3 d-flex align-items-stretch card-column">
           <div class="card" style="width: inherit;">
-            
-            <div class="card-header">
-            <% if clothe.clothing_type  %>
-                <%= clothe.clothing_type %>
+            <% if clothe.clothing_pic.attached?  %>
+              <img class="card-img-top" src="<%=(url_for(clothe.clothing_pic))%>" alt="Card image cap">
             <% end  %>
-            </div>  
 
             <div class="card-body">
-            <% if clothe.clothing_pic.attached?  %>
-                <img class="card-img-top" src="<%=(url_for(clothe.clothing_pic))%>" alt="Card image cap">
-            <% end  %>
+              
+            
+              <% if clothe.clothing_type  %>
+                  <h5 class="card-title"><%= clothe.clothing_type %></h5>
+              <% end  %>
+            
+
+              
+
+                <ul class="list-group list-group-flush">
+                  <% if clothe.style%>
+                    <li class="list-group-item">Style: <%= clothe.style %></li>
+                  <% end  %>
+
+                  <% if clothe.pattern%>
+                    <li class="list-group-item">Pattern: <%= clothe.pattern %></li>
+                  <% end  %>
+
+                   <% if clothe.season%>
+                    <li class="list-group-item">Season: <%= clothe.season %></li>
+                  <% end  %>
+
+                </ul>
             </div>
 
             <div class="card-footer text-center"> 

@@ -1,8 +1,70 @@
-<%= form_for @clothe do |f| %>
-  <%= f.hidden_field :closet_id, :value => @clothe.closet_id %>
-  <%= f.label "Clothing Pic" %>
-<%=   f.select :clothing_type, ['shirt', 'pant','short', 'jacket', 'sweatshirt'] %>
 
-  <%= f.file_field :clothing_pic %>
-  <%= f.submit "create clothing" %>
+<%= form_for @clothe, :html => {:class => 'form-group needs-validation'} do |f| %>
+  
+    
+  <% if flash[:error] %>
+    
+    <div class="alert alert-danger col-lg-8">
+      <h4>
+        <%= pluralize(flash[:error].count, "error") %>
+          prohibited this post from being saved:
+      </h4>
+      <ul>
+      <% flash[:error].each do |error| %>  
+          <li><%= error %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= f.hidden_field :closet_id, :value => @clothe.closet_id %>
+  <div class="form-group col-lg-4 <%= @clothe.errors[:clothing_type].any? ? "has-error" : "" %>">
+
+    <%= f.label :clothing_type %>
+    <%= f.collection_select :clothing_type, ['shirt', 'pant','short', 'jacket', 'sweatshirt'], :to_s, :to_s, {prompt: "Select a type"}, {class: "form-control"} %>
+  </div>
+
+  <div class="form-group col-lg-4 <%= @clothe.errors[:style].any? ? "has-error" : "" %>">
+    <%= f.label :style %>
+    <%= f.collection_select :style, ['Activewear', 'Casual','Preppy', 'Minimalist', 'Workwear', 'Vintage'], :to_s, :to_s, {prompt: "Select a style"}, {class: "form-control"} %>
+  </div>
+
+   <div class="form-group col-lg-4">
+    <%= f.label :season %>
+    <%= f.text_field :season, :class => 'form-control'  %>
+  </div>
+  
+  <div class="form-group col-lg-4">
+    <%= f.label "Pattern" %>
+    <%= f.text_field :pattern, :class => 'form-control' + (@clothe.errors.include?(:pattern) ? ' is-invalid' : '') %>
+  </div>
+
+  
+
+  <div class="form-group col-lg-4 <%= @clothe.errors[:clothing_pic].any? ? "has-error" : "" %>">
+    <%= f.label :clothing_pic, 'Upload a picture' %>
+    <div class="input-group">
+      <%= f.label :clothing_pic, class: 'input-group-btn' do  %>
+      <span class="btn btn-primary">
+        Browse
+        <%= f.file_field :clothing_pic, style: 'display: none;', accept: 'image/*', onchange: "clothingUploadFilename(this)" %>
+      </span>
+      <% end %>
+      <input type="text" class="form-control" id="clothingFilename" style="margin-left: 5px;" disabled>
+    </div>
+  </div>
+  
+  
+  <div class="form-group col-lg-4">
+    <%= f.submit "create clothing", :class => 'btn btn-primary' %>
+  </div>
 <% end  %>
+
+ <script>
+    // Show filename for avatar upload
+    function clothingUploadFilename(file) {
+         var file = event.target.files[0]
+         // document.getElementById('avatarPreview').src = URL.createObjectURL(file);
+         document.getElementById('clothingFilename').value = file.name
+    }
+  </script>
