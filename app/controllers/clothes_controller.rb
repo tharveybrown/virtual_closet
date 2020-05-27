@@ -33,9 +33,17 @@ class ClothesController < ApplicationController
   end
 
   def update
-    
-    
+    @clothe = Clothe.find(params[:id])
+
+    byebug
+    if params[:clothe][:clothing_pic]
+      pic = params[:clothe].delete(:clothing_pic)
+    end
     if @clothe = Clothe.update(clothe_params)
+      if pic
+        @clothe.clothing_pic.attach(pic)
+        @clothe.save
+      end
       flash[:alert] = "Success."
       redirect_to clothe_path(@clothe)
     else

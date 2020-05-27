@@ -40,7 +40,6 @@
   </div>
 
   
-
   <div class="form-group col-lg-4 <%= @clothe.errors[:clothing_pic].any? ? "has-error" : "" %>">
     <%= f.label :clothing_pic, 'Upload a picture' %>
     <div class="input-group">
@@ -61,7 +60,6 @@
 <% end  %>
 
  <script>
-    // Show filename for avatar upload
     function clothingUploadFilename(file) {
          var file = event.target.files[0]
          // document.getElementById('avatarPreview').src = URL.createObjectURL(file);
