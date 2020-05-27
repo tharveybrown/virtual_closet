@@ -3,38 +3,39 @@
       :class => "btn btn-primary", :method => :get %>
 </div>
 
-<% rows = @closet.clothes.each_slice(3).to_a %>
+<% if @closet %>
+  <% rows = @closet.clothes.each_slice(3).to_a %>
 
-<% count = 0 %>
+  <% count = 0 %>
 
+  <% while count < rows.length do %>
+    <div class="row">
+        <% rows[count].each do |clothe| %>
+        
+        <div class="col-md-4 d-flex align-items-stretch card-column">
+          <div class="card" style="width: inherit;">
+            
+            <div class="card-header">
+            <% if clothe.clothing_type  %>
+                <%= clothe.clothing_type %>
+            <% end  %>
+            </div>  
 
-<% while count < rows.length do %>
-  <div class="row">
-      <% rows[count].each do |clothe| %>
-      
-      <div class="col-md-4 d-flex align-items-stretch card-column">
-        <div class="card" style="width: inherit;">
-          
-          <div class="card-header">
-          <% if clothe.clothing_type  %>
-              <%= clothe.clothing_type %>
-          <% end  %>
-          </div>  
+            <div class="card-body">
+            <% if clothe.clothing_pic.attached?  %>
+                <img class="card-img-top" src="<%=(url_for(clothe.clothing_pic))%>" alt="Card image cap">
+            <% end  %>
+            </div>
 
-          <div class="card-body">
-          <% if clothe.clothing_pic.attached?  %>
-              <img class="card-img-top" src="<%=(url_for(clothe.clothing_pic))%>" alt="Card image cap">
-          <% end  %>
+            <div class="card-footer text-center"> 
+              <%= button_to( "View Item", clothe_path(clothe.id), :method => :get, :class => "btn btn-primary" ) %>
+            </div>
+
           </div>
-
-          <div class="card-footer text-center"> 
-            <%= button_to( "View Item", clothe_path(clothe.id), :method => :get, :class => "btn btn-primary" ) %>
-          </div>
-
         </div>
-      </div>
-        <% end  %>
-  </div>
-  <% count += 1  %>
-<% end  %>
+          <% end  %>
+    </div>
+    <% count += 1  %>
+  <% end  %>
   
+<% end  %>
