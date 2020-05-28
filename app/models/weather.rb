@@ -26,7 +26,10 @@ class Weather
 
   def main
     self.weather[:weather][0]["main"]
- 
+  end
+
+  def wind
+    self.weather["wind"]["speed"]
   end
 
 

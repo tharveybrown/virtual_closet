@@ -38,7 +38,6 @@ class ClothesController < ApplicationController
       ActiveStorage::Attachment.find(@clothe.clothing_pic.id).purge
       @clothe.clothing_pic.attach(params[:clothe][:clothing_pic])
       params[:clothe].delete(:clothing_pic)
-
     end
     if @clothe = Clothe.update(clothe_params)
       flash[:alert] = "Success."
@@ -48,7 +47,6 @@ class ClothesController < ApplicationController
       flash[:alert] = "Failed."
       render :edit
     end
-    
   end
 
   def clothe_params
