@@ -14,9 +14,10 @@
         <%= f.radio_button :gender, "Male"%>
         <label for="Male" class="btn btn-primary">Men's</label>
         
-        
-        <%= f.radio_button :gender, "Female" %>
-        <label for="Female" class="btn btn-primary">Women's</label>
+        <div class="form-check">
+        <%= f.radio_button :gender, "Female", :class => "form-check-input" %>
+        <label for="Female" class="form-check-label">Women's</label>
+        </div>  
     </div>
 
         <%= f.submit "Submit", :class => "btn btn-primary"%>
