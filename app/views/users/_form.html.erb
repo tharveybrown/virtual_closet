@@ -24,14 +24,9 @@
             <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation, :class => 'form-control' %>
           </div>
-
-           <div class="form-group">
-            <%= f.label :address %>
-            <%= f.text_field :address, :class => 'form-control' %>
-          </div>
           
           <div class="form-group">
-            <%= f.submit "Sign Up", :class => "btn btn-primary" %>
+            <%= f.submit "Register", :class => "btn btn-primary" %>
             Or <%= link_to(controller: 'sessions', action: 'new') { 'sign in' } %>
           </div>
 
