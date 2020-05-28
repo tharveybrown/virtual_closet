@@ -10,7 +10,7 @@ class Mtl
         # Request parameters
         'image' => image_url,
         'gender' => gender,
-        'limit' => '10'
+        'limit' => '12'
     })
     if query.length > 0
     if uri.query && uri.query.length > 0
@@ -19,12 +19,13 @@ class Mtl
         uri.query = query
     end
     end
-
+    key = ENV["MTL_KEY"]
+    byebug
     request = Net::HTTP::Get.new(uri.request_uri)
     # Request headers
     request['Ocp-Apim-Subscription-Key'] = ''
     # Request headers
-    request['Ocp-Apim-Subscription-Key'] = '49bd468115bf47d3bb53b1b525d84982'
+    request['Ocp-Apim-Subscription-Key'] = "49bd468115bf47d3bb53b1b525d84982"
     # Request body
     request.body = "{body}"
 

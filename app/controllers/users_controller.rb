@@ -13,8 +13,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    
     @weather = Weather.new(lon: @user.longitude, lat: @user.latitude)
+  end
+
+  def outfits
+    @outfits = current_user.closet.outfits
   end
   
     
