@@ -31,7 +31,6 @@ class UsersController < ApplicationController
       flash[:error] = @user.errors.full_messages
       flash[:alert] = "Failed."
       render :edit
-
     end
   end
   

@@ -1,0 +1,31 @@
+<% if @look %>
+ 
+    <div class="row">
+        
+        <% @look.each do |c| %>
+        
+        <div class="col-md-4 d-flex align-items-stretch card-column">
+          <div class="card" style="width: inherit;">
+            
+            <div class="card-header">
+                <% if c[:name]  %>
+                    <%= c[:name] %>
+                <% end  %>
+            </div>  
+
+            <div class="card-body">
+                <% if c[:image_url] %>
+                    <img class="card-img-top" src="<%=(url_for(c[:image_url]))%>" alt="Card image cap">
+                <% end  %>
+            </div>
+
+            <div class="card-footer text-center"> 
+            <%= link_to "Price: $#{c[:price]}", c[:link], target: :_blank %> 
+            </div>
+
+        </div>
+    </div>
+    <% end  %>
+</div>
+<% end  %>
+  

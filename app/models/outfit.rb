@@ -12,6 +12,10 @@ class Outfit < ApplicationRecord
     clothes
   end
 
+  def self.get_outfit(image_url, gender)
+    Mtl.get_data(image_url, gender)
+  end
+
   private 
   def require_bottom
     bottoms = clothes.select{|c| c.clothing_type == "pant" || c.clothing_type == "short"}.count
@@ -26,5 +30,7 @@ class Outfit < ApplicationRecord
       errors.add(:type, "Please select one shirt")
     end
   end
+
+  
 
 end
