@@ -8,7 +8,7 @@
         </div>
       <%= render 'form' %>
       <div class="form-group">
-            Or <%= link_to(controller: 'sessions', action: 'new') { 'sign in' } %>
+        Or <%= link_to "sign in", {controller: 'sessions', action: 'new'}, class: "text-secondary"%>
       </div>
     </div>
   </div>
