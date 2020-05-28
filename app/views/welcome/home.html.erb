@@ -1,4 +1,64 @@
-<h1>Hi, <%= @user.email %></h1>
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-  <input type=submit value='logout'>
-<% end %>
+
+
+      <div class="container-fluid text-center display-inline home-nav">
+            <h2 class="card-title h2">Welcome, <%= @user.first_name %>!</h2>
+  <!-- Subtitle -->
+       <p class="m-0px font-w-600"><mark>You've entered your virtual closet.</mark></p>
+      
+
+
+
+      </div>
+
+      <hr class="my-4">
+  
+      <div class="d-flex justify-content-center card-clothing">
+        <div class="card text-center">
+          <div class="card-header">
+            <h3><%= @user.city %></h3>
+          </div>
+          <div class="card-body">
+              <h5 class="card-title"><%= @weather.main %> <span class="dot">•</span> 
+              Wind <%= @weather.wind %> km/h <span class="dot">•</span>
+                Humidity <%= @weather.humidity %></span></h5>
+            <div class="sky">
+            <h1 class="left-float"><%= @weather.temp %></h1>
+              <img src="http://openweathermap.org/img/wn/<%=@weather.icon%>@4x.png"> 
+            </div>
+          </div>
+          
+        
+          
+        <table class="table">        
+          <thead>
+            <tr>
+            <% @weather.next_five_days.each do |day| %>
+              <th scope="col"><%= day["date"] %></th>
+            <% end  %>
+            </tr>
+          </thead>
+          
+          <tbody>
+              
+              <tr>
+                <% @weather.next_five_days.each do |day|  %>
+                  <td><%= day["max_temp"] %></td>
+                <% end  %>
+              </tr>
+
+              <tr>
+                <% @weather.next_five_days.each do |day|  %>
+                  <td><%= day["min_temp"] %></td>
+                <% end  %>
+              </tr>
+              
+          </tbody>    
+        </table>
+      </div>
+    </div>
+        <div class="text-center home-nav">
+        <%= button_to( "Explore Outfits", outfits_path, :method => :get, :class => "btn btn-outline-primary" ) %>
+        </div>
+
+<!-- Jumbotron -->
+

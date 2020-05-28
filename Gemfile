@@ -26,14 +26,15 @@ gem "rest-client", "~> 2.1"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'geocoder'
-gem 'gmaps4rails'
+# gem 'gmaps4rails'
 gem 'open-weather'
 gem 'open-weather-api'
+gem "font-awesome-rails"
 gem 'figaro'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootstrap', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 group :development, :test do

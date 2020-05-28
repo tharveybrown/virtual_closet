@@ -1,38 +1,59 @@
-
-
-<div class="row justify-content-center align-items-center" style="height:70vh">
-  <div class="col-4">
-    <div class="card">
-      <%= form_for @user, :html => {:class => 'form-signin'}, controller: 'users', action: 'create' do |f| %>
-        <div class="card-header">
-          <h1 class="h3 mb-2 font-weight-normal">Sign up</h1>
-        </div>
+     <%= form_for @user, :html => {:class => 'form-signin'}, controller: 'users', action: 'create' do |f| %>
+        
         
         <div class="card-body">
+          <% if flash[:error] %>
+            <div class="alert alert-danger">
+              <h5>
+                <%= pluralize(flash[:error].count, "error") %>
+                  prohibited this post from being saved:
+              </h5>
+              <ul>
+              <% flash[:error].each do |error| %>  
+                  <li><%= error %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
 
-          <div class="form-group">
+           <div class="form-row">
+            <div class="form-group col-md-6 <%= @user.errors[:first_name].any? ? "has-error" : "" %>">
+              <%= f.label :first_name%>
+              <%= f.text_field :first_name, :class => 'form-control' %>
+            </div>
+            <div class="form-group col-md-6 <%= @user.errors[:last_name].any? ? "has-error" : "" %>">
+              <%= f.label :last_name%>
+              <%= f.text_field :last_name, :class => 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group <%= @user.errors[:email].any? ? "has-error" : "" %>">
             <%= f.label :email%>
             <%= f.text_field :email, :class => 'form-control' %>
           </div>
 
-          <div class="form-group">
+          <div class="form-group <%= @user.errors[:password].any? ? "has-error" : "" %>">
             <%= f.label :password%>
             <%= f.password_field :password, :class => 'form-control' %>
           </div>
 
-          <div class="form-group">
+          <div class="form-group <%= @user.errors[:password_confirmation].any? ? "has-error" : "" %>">
             <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation, :class => 'form-control' %>
           </div>
+
+           <div class="form-group <%= @user.errors[:password_confirmation].any? ? "has-error" : "" %>">
+            <%= f.label :address %>
+            <%= f.text_field :address, :class => 'form-control' %>
+          </div>
           
           <div class="form-group">
-            <%= f.submit "Register", :class => "btn btn-primary" %>
-            Or <%= link_to(controller: 'sessions', action: 'new') { 'sign in' } %>
+            <%=f.submit :Submit, class: 'btn btn-success'%>
+            
           </div>
 
           
+
+          
         </div>
-    <% end %>
-    </div>
-  </div>
-</div>
+      <% end %>

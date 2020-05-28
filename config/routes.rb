@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
   get '/profile' => 'users#show'
+  delete '/users/:id', to: 'users#destroy'
 
   get '/users/:id/outfits' => 'users#outfits'
   post '/outfits/look' => 'outfits#look'

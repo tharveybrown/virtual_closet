@@ -13,18 +13,20 @@
  
  */
  $theme-colors: (
-   
-  "secondary": #CACACA,
-  "success": #015668,
-  "light": #ececec,
-  "dark": #18181d,
+  "primary": #FFDE03,
+  "secondary": #0336FF,
+  "success": #0032f8,
+  "light": #6f63ff,
+  "dark": #0008ca,
   
-  "info": #7164ff,
+  "info": #ffff54,
   "warning": #ff9f65,
   "danger": #ff457b
   
 );
- @import "bootstrap";
+
+@import "font-awesome";
+@import "bootstrap";
 
  
 .add-new {
@@ -61,7 +63,7 @@
   float: none;
   margin: 0 auto;
   margin-bottom: 10px;
-  max-width: 60%;
+  max-width: 50%;
   justify-content: center !important;
   margin-top: 30px;
 }
@@ -71,4 +73,121 @@
     color: #666;
     font-weight: 300;
     font-size: 4em;
+}
+
+body{
+  color: #6F8BA4;
+}
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+.gray-bg {
+  background-color: #f5f5f5;
+}
+
+/* About Me 
+---------------------*/
+.about-text h3 {
+font-size: 45px;
+font-weight: 700;
+margin: 0 0 6px;
+}
+@media (max-width: 767px) {
+.about-text h3 {
+  font-size: 35px;
+}
+}
+.about-text h6 {
+font-weight: 600;
+margin-bottom: 15px;
+}
+@media (max-width: 767px) {
+.about-text h6 {
+  font-size: 18px;
+}
+}
+.about-text p {
+font-size: 18px;
+max-width: 450px;
+}
+.about-text p mark {
+font-weight: 600;
+color: #0008ca;
+}
+
+.about-list {
+padding-top: 10px;
+}
+.about-list .media {
+padding: 5px 0;
+}
+.about-list label {
+color: #0008ca;
+font-weight: 600;
+width: 88px;
+margin: 0;
+position: relative;
+}
+
+.about-list p {
+margin: 0;
+font-size: 15px;
+}
+
+@media (max-width: 991px) {
+.about-avatar {
+  margin-top: 30px;
+}
+}
+
+.about-section .counter {
+margin-top: 10px;
+padding: 22px 20px;
+background: #ffffff;
+border-radius: 10px;
+box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+}
+.about-section .counter .count-data {
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.about-section .counter .count {
+font-weight: 700;
+color: #0008ca;
+margin: 0 0 5px;
+}
+.about-section .counter p {
+font-weight: 600;
+margin: 0;
+}
+mark {
+  background-image: linear-gradient(#ff457b, #ff457b);
+  background-size: 100% 3px;
+  background-repeat: no-repeat;
+  background-position: 0 bottom;
+  background-color: transparent;
+  padding: 0;
+  color: currentColor;
+}
+.theme-color {
+  color: #ff457b;
+}
+.dark-color {
+  color: #0008ca;
+}
+
+.edit-color {
+  color: #90A4AE;
+}
+.edit-color:active, .edit-color:hover {
+  color: #78909C;
+}
+.sign-up {
+  margin-top: 1rem;
+}
+
+.home-nav {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
