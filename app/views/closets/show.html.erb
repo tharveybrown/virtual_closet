@@ -56,3 +56,9 @@
   <% end  %>
   
 <% end  %>
+
+<% if flash[:errors] %>
+    <div class="alert alert-danger"><%= flash[:errors] %></div>
+<% end %>
+   
+   

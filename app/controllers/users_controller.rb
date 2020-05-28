@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     @weather = Weather.new(lon: @user.longitude, lat: @user.latitude)
   end
   
+    
+
   private
 
   def user_params
