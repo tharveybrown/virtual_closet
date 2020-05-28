@@ -8,7 +8,7 @@
       <%= render 'form' %>
       <div class="card-body">
         <div class="form-group">
-              Or <%= link_to(controller: 'users', action: 'show') { 'go back' } %>
+              Or <%= link_to "go back", {controller: 'users', action: 'show'}, class: "text-secondary"%>
         </div>
       </div>
     </div>
