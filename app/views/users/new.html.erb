@@ -2,42 +2,14 @@
 
 <div class="row justify-content-center align-items-center" style="height:70vh">
   <div class="col-4">
-    <div class="card">
-      <%= form_for @user, :html => {:class => 'form-signin'}, controller: 'users', action: 'create' do |f| %>
+    <div class="card sign-up">
         <div class="card-header">
           <h1 class="h3 mb-2 font-weight-normal">Sign up</h1>
         </div>
-        
-        <div class="card-body">
-
-          <div class="form-group">
-            <%= f.label :email%>
-            <%= f.text_field :email, :class => 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :password%>
-            <%= f.password_field :password, :class => 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, :class => 'form-control' %>
-          </div>
-
-           <div class="form-group">
-            <%= f.label :address %>
-            <%= f.text_field :address, :class => 'form-control' %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.submit "Sign Up", :class => "btn btn-primary" %>
+      <%= render 'form' %>
+      <div class="form-group">
             Or <%= link_to(controller: 'sessions', action: 'new') { 'sign in' } %>
-          </div>
-
-          
-        </div>
-    <% end %>
+      </div>
     </div>
   </div>
 </div>

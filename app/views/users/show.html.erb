@@ -1,87 +1,69 @@
-
-<%= @user.email %>
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-  <input type=submit value='logout'>
-
-<%= @user.latitude %>
-<%= @user.longitude %>
-<%= @user.address%>
-
-<% end %>
-<%= @weather.weather %>
-<%= @weather.temp %>
-<%= @weather.description %>
-<%= @weather.icon %>
-
-
-<div class="card text-center">
-        <div class="card-header">
-          <h3><%= @user.city %></h3>
+<section class="section about-section gray-bg" id="about">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="about-text go-to">
+            <h3 class="dark-color"><%= @user.full_name %>  <%= link_to(edit_user_path(@user.id), method: "get") do %>
+            <i class="edit-color fa fa-edit"></i>
+            <% end %></h3>
+          
+            <p>Email: <mark><%= @user.email %></mark></p>
+            <div class="row about-list">
+              <div class="col-lg-12">
+                <div class="media">
+                    <label>Address: </label>
+                    <p><%= @user.address %></p>
+                </div>
+                <div class="media">
+                    <label>Longitude: </label>
+                    <p><%=@user.longitude.round(2)%></p>
+                </div>
+                <div class="media">
+                    <label>Latitude: </label>
+                    <p><%= @user.latitude.round(2) %></p>
+                </div>
+              </div>
         </div>
-        <div class="card-body">
-           <h5 class="card-title"><%= @weather.main %> <span class="dot">•</span> 
-            Wind <%= @weather.wind %> km/h <span class="dot">•</span>
-             Humidity <%= @weather.humidity %></span></h5>
-          <div class="sky">
-          <h1 class="left-float"><%= @weather.temp %></h1>
-           <img src="http://openweathermap.org/img/wn/<%=@weather.icon%>@4x.png"> 
-          </div>
-        </div>
-        
-       
-        
-    
-        <table>
-            <tr>
-                <td>TUE</td>
-                <td>WED</td>
-                <td>THU</td>
-                <td>FRI</td>
-                <td>SAT</td>
-            </tr>
-            <tr>
-                <td>30°</td>
-                <td>34°</td>
-                <td>36°</td>
-                <td>34°</td>
-                <td>37°</td>
-            </tr>
-            <tr>
-                <td>17°</td>
-                <td>22°</td>
-                <td>19°</td>
-                <td>23°</td>
-                <td>19°</td>
-            </tr>
-        </table>
+      </div>
     </div>
-<% if @outfits %>
-
-  <% @outfits.each do |o| %>
-    <div class="card-group"> 
-        <% o.clothes.each do |clothe| %>
-        <div class="col-md-4 d-flex align-items-stretch card-column">
-        <div class="card" style="width: inherit;">
-            <div class="card-header">
-                <% if clothe.clothing_type  %>
-                    <%= clothe.clothing_type %>
-                <% end  %>
-            </div>  
-
-            <div class="card-body">
-                <% if clothe.clothing_pic.attached?  %>
-                    <img class="card-img-top" src="<%=(url_for(clothe.clothing_pic))%>" alt="Card image cap">
-                <% end  %>
-            </div>
-
-            <div class="card-footer text-center"> 
-                <%= button_to( "View Item", clothe_path(clothe.id), :method => :get, :class => "btn btn-primary" ) %>
-            </div>
-        </div>
-        </div>
-        <% end %>
+        
   </div>
-  <% end  %>
-  
-<% end  %>
+    <div class="counter">
+        <div class="row">
+            <% if @user.clothes %>
+            <div class="col-6 col-lg-3">
+                <div class="count-data text-center">
+                    <h6 class="count h2" data-to="500" data-speed="500"><%= @user.clothes.count %></h6>
+                    <p class="m-0px font-w-600"><%= pluralize(@user.clothes.count, "Item of clothing") %></p>
+                </div>
+            </div>
+            <% end  %>
+            
+            <div class="col-6 col-lg-3">
+                <div class="count-data text-center">
+                    <h6 class="count h2" data-to="150" data-speed="150"><%= @user.closet.outfits.count %></h6>
+                    <p class="m-0px font-w-600">Outfits</p>
+                </div>
+            </div>
 
+              <div class="col-6 col-lg-3">
+                <div class="count-data text-center">
+                    <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+                        <h6 class="count h2" data-to="150" data-speed="150"><input type=submit value='Log Out' class="btn btn-light"></h6>
+                    <% end %>
+                    <p class="m-0px font-w-600">👋</p>
+                </div>
+            </div>
+
+              <div class="col-6 col-lg-3">
+                <div class="count-data text-center">
+                    <%= form_tag user_path(@user.id), method: "delete" do %>
+                        <h6 class="count h2" data-to="150" data-speed="150"><input type=submit value='Delete Account' class="btn btn-danger"></h6>
+                    <% end %>
+                    <p class="m-0px font-w-600">🚫</p>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</section>
