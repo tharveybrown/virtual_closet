@@ -6,6 +6,11 @@
           <h1 class="h3 mb-2 font-weight-normal">Edit Profile</h1>
       </div>
       <%= render 'form' %>
+      <div class="card-body">
+        <div class="form-group">
+              Or <%= link_to(controller: 'users', action: 'show') { 'go back' } %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

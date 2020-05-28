@@ -49,9 +49,9 @@
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
                     <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-                        <h6 class="count h2" data-to="150" data-speed="150"><input type=submit value='logout' class="btn btn-secondary"></h6>
+                        <h6 class="count h2" data-to="150" data-speed="150"><input type=submit value='Log Out' class="btn btn-light"></h6>
                     <% end %>
-                    <p class="m-0px font-w-600">Sign out</p>
+                    <p class="m-0px font-w-600">👋</p>
                 </div>
             </div>
 
@@ -60,7 +60,7 @@
                     <%= form_tag user_path(@user.id), method: "delete" do %>
                         <h6 class="count h2" data-to="150" data-speed="150"><input type=submit value='Delete Account' class="btn btn-danger"></h6>
                     <% end %>
-                    <p class="m-0px font-w-600">Delete Account</p>
+                    <p class="m-0px font-w-600">🚫</p>
                 </div>
             </div>
         </div>

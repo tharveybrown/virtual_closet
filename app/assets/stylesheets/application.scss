@@ -13,13 +13,13 @@
  
  */
  $theme-colors: (
-   
-  "secondary": #CACACA,
-  "success": #015668,
-  "light": #ececec,
-  "dark": #18181d,
+  "primary": #FFDE03,
+  "secondary": #0336FF,
+  "success": #0032f8,
+  "light": #6f63ff,
+  "dark": #0008ca,
   
-  "info": #7164ff,
+  "info": #ffff54,
   "warning": #ff9f65,
   "danger": #ff457b
   
@@ -63,7 +63,7 @@
   float: none;
   margin: 0 auto;
   margin-bottom: 10px;
-  max-width: 60%;
+  max-width: 50%;
   justify-content: center !important;
   margin-top: 30px;
 }
@@ -113,7 +113,7 @@ max-width: 450px;
 }
 .about-text p mark {
 font-weight: 600;
-color: #20247b;
+color: #0008ca;
 }
 
 .about-list {
@@ -123,7 +123,7 @@ padding-top: 10px;
 padding: 5px 0;
 }
 .about-list label {
-color: #20247b;
+color: #0008ca;
 font-weight: 600;
 width: 88px;
 margin: 0;
@@ -154,7 +154,7 @@ margin-bottom: 10px;
 }
 .about-section .counter .count {
 font-weight: 700;
-color: #20247b;
+color: #0008ca;
 margin: 0 0 5px;
 }
 .about-section .counter p {
@@ -162,7 +162,7 @@ font-weight: 600;
 margin: 0;
 }
 mark {
-  background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
+  background-image: linear-gradient(#ff457b, #ff457b);
   background-size: 100% 3px;
   background-repeat: no-repeat;
   background-position: 0 bottom;
@@ -171,10 +171,10 @@ mark {
   color: currentColor;
 }
 .theme-color {
-  color: #fc5356;
+  color: #ff457b;
 }
 .dark-color {
-  color: #20247b;
+  color: #0008ca;
 }
 
 .edit-color {
@@ -185,4 +185,9 @@ mark {
 }
 .sign-up {
   margin-top: 1rem;
+}
+
+.home-nav {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
