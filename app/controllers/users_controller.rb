@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include UsersHelper
   def new
   end
 
@@ -11,9 +12,14 @@ class UsersController < ApplicationController
     redirect_to controller: 'welcome', action: 'home'
   end
 
+  def show
+    
+    @weather = Weather.new(lon: @user.longitude, lat: @user.latitude)
+  end
+  
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :address, :longitude, :latitude)
   end
 end

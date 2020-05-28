@@ -24,7 +24,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'open-weather'
+gem 'open-weather-api'
+gem 'figaro'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootstrap', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false

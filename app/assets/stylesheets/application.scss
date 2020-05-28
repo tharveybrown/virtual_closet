@@ -13,13 +13,16 @@
  
  */
  $theme-colors: (
+   
   "secondary": #CACACA,
   "success": #015668,
-  "info": #0F81C7,
-  "warning": #0DE2EA,
-  "danger": #06648C,
   "light": #ececec,
-  "dark": #222222
+  "dark": #18181d,
+  
+  "info": #7164ff,
+  "warning": #ff9f65,
+  "danger": #ff457b
+  
 );
  @import "bootstrap";
 
@@ -30,5 +33,42 @@
 }
 
 .card-column {
-  padding: 2rem;
+  padding: 1.5rem;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.has-error .form-control{
+  border-width: 1px;
+  border-color:#ff457b ;
+}
+
+.card-clothing {
+  float: none;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  max-width: 60%;
+  justify-content: center !important;
+  margin-top: 30px;
+}
+
+.left-float {
+    display: inline-flex;
+    color: #666;
+    font-weight: 300;
+    font-size: 4em;
 }

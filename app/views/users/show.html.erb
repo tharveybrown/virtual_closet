@@ -1,0 +1,57 @@
+
+<%= @user.email %>
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout'>
+
+<%= @user.latitude %>
+<%= @user.longitude %>
+<%= @user.address%>
+
+<% end %>
+<%= @weather.weather %>
+<%= @weather.temp %>
+<%= @weather.description %>
+<%= @weather.icon %>
+
+
+<div class="card text-center">
+        <div class="card-header">
+          <h3><%= @user.city %></h3>
+        </div>
+        <div class="card-body">
+           <h5 class="card-title"><%= @weather.main %> <span class="dot">•</span> 
+            Wind <%= @weather.wind %> km/h <span class="dot">•</span>
+             Humidity <%= @weather.humidity %></span></h5>
+          <div class="sky">
+          <h1 class="left-float"><%= @weather.temp %></h1>
+           <img src="http://openweathermap.org/img/wn/<%=@weather.icon%>@4x.png"> 
+          </div>
+        </div>
+        
+       
+        
+    
+        <table>
+            <tr>
+                <td>TUE</td>
+                <td>WED</td>
+                <td>THU</td>
+                <td>FRI</td>
+                <td>SAT</td>
+            </tr>
+            <tr>
+                <td>30°</td>
+                <td>34°</td>
+                <td>36°</td>
+                <td>34°</td>
+                <td>37°</td>
+            </tr>
+            <tr>
+                <td>17°</td>
+                <td>22°</td>
+                <td>19°</td>
+                <td>23°</td>
+                <td>19°</td>
+            </tr>
+        </table>
+    </div>

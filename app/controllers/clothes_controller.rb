@@ -19,9 +19,34 @@ class ClothesController < ApplicationController
     # byebug
     @clothe = Clothe.create(clothe_params)
     @user.closet.clothes << @clothe
-    redirect_to clothe_path(@clothe)
+    
+    if @clothe.save 
+      flash[:alert] = "Success."
+      redirect_to clothe_path(@clothe)
+    else
+      flash[:error] = @clothe.errors.full_messages
+      flash[:alert] = "Failed."
+      render :new
+    end
 
     # redirect_to :controller => 'closets', :action => 'show' 
+  end
+
+  def update
+    @clothe = Clothe.find(params[:id])
+    if params[:clothe][:clothing_pic]
+      ActiveStorage::Attachment.find(@clothe.clothing_pic.id).purge
+      @clothe.clothing_pic.attach(params[:clothe][:clothing_pic])
+      params[:clothe].delete(:clothing_pic)
+    end
+    if @clothe = Clothe.update(clothe_params)
+      flash[:alert] = "Success."
+      redirect_to clothe_path(@clothe)
+    else
+      flash[:error] = @clothe.errors.full_messages
+      flash[:alert] = "Failed."
+      render :edit
+    end
   end
 
   def clothe_params
