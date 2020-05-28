@@ -2,7 +2,6 @@
 
   <% @outfits.each do |o| %>
     <div class="card-group"> 
-        <div class="card-group-header"><%= o.closet.user.email %></div>
         <% o.clothes.each do |clothe| %>
         <div class="col-md-4 d-flex align-items-stretch card-column">
         <div class="card" style="width: inherit;">

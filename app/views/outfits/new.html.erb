@@ -3,18 +3,25 @@
         :class => "btn btn-primary", :method => :post %>
 </div> 
   
-<div class="dropdown">
-<button class="btn btn-secondary dropdown-toggle"
-        type="button" id="dropdownMenu1" data-toggle="Shirts"
-        aria-haspopup="true" aria-expanded="false">
-    Dropdown
-</button>
-<div class="dropdown-menu" aria-labelledby="Shirts">
 
-    <a class="dropdown-item" href="#!">1</a>
-    <a class="dropdown-item" href="#!">2</a>
-    <a class="dropdown-item" href="#!">3</a>
- 
+    <div class="form-group">
+      <%= form_for :mtl, url: "look" do |f| %>
+            <%= f.label :image_url %>
+            <%= f.text_field :image_url %>
+                 
+    </div>
+
+        <%= f.radio_button :gender, "Male"%>
+        <label for="Male" class="btn btn-primary">Men's</label>
+        
+        
+        <%= f.radio_button :gender, "Female" %>
+        <label for="Female" class="btn btn-primary">Women's</label>
+    </div>
+
+        <%= f.submit "Submit", :class => "btn btn-primary"%>
+      <% end %>
+    </div>
     
 </div>
-</div>
+
