@@ -27,13 +27,14 @@ class Outfit < ApplicationRecord
   end
 
   def clothes_for_weather(weather)
+    
     case weather
     when 50..60
-      self.random_sweatshirt ? self.clothes << self.random_sweatshirt : flash[:warning] << "You should add a sweatshirt!"
+      self.random_sweatshirt ? self.clothes << self.random_sweatshirt :  "You should add a sweatshirt!"
     when 0..50
-      self.random_jacket ? self.clothes << self.random_jacket : flash[:warning] << "You should add a jacket!"
+      self.random_jacket ? self.clothes << self.random_jacket : "You should add a jacket!"
     when 80..150
-      self.random_shorts ? self.clothes << self.random_shorts : flash[:warning] << "You should add some shorts!"
+      self.random_shorts ? self.clothes << self.random_shorts : "You should add some shorts!"
       shorts = self.random_shorts
     end
   end
