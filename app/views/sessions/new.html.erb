@@ -20,7 +20,7 @@
 
           <div class="form-group">
             <%= f.submit "log in", :class => "btn btn-primary" %>
-            Or <%= link_to(controller: 'users', action: 'new') { 'sign up' } %>
+            Or <%= link_to "sign up", {controller: 'users', action: 'new'}, class: "text-primary"%>
           </div>
         </div>
     <% end %>

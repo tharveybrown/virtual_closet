@@ -10,11 +10,11 @@ class UsersController < ApplicationController
 
     if @user.save 
       session[:user_id] = @user.id
-      flash[:alert] = "Success."
+      flash[:success] = "Success."
       redirect_to controller: 'welcome', action: 'home'
     else
-      flash[:error] = @user.errors.full_messages
-      flash[:alert] = "Failed."
+      flash[:warning] = @user.errors.full_messages
+      
       render :new
     end
    
@@ -26,11 +26,10 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:alert] = "Success."
+      flash[:success] = "Success."
       redirect_to user_path(@user.id)
     else
-      flash[:error] = @user.errors.full_messages
-      flash[:alert] = "Failed."
+      flash[:warning] = @user.errors.full_messages
       render :edit
     end
   end
@@ -40,8 +39,13 @@ class UsersController < ApplicationController
   end
   
   def destroy
+    # byebug
     @user.closet.clothes.each do |clothe|
+      clothe.clothing_pic.detach
       clothe.destroy 
+    end
+    @user.closet.outfits.each do |outfit|
+      outfit.destroy
     end
     @user.closet.destroy 
     @user.destroy 

@@ -2,19 +2,7 @@
         
         
         <div class="card-body">
-          <% if flash[:error] %>
-            <div class="alert alert-danger">
-              <h5>
-                <%= pluralize(flash[:error].count, "error") %>
-                  prohibited this post from being saved:
-              </h5>
-              <ul>
-              <% flash[:error].each do |error| %>  
-                  <li><%= error %></li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %>
+          
 
            <div class="form-row">
             <div class="form-group col-md-6 <%= @user.errors[:first_name].any? ? "has-error" : "" %>">

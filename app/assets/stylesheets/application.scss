@@ -13,8 +13,8 @@
  
  */
  $theme-colors: (
-  "primary": #fdde03,
-  "secondary": #0336FF,
+  "primary": #304ffe,
+  "secondary": #e91e63,
   "success": #0032f8,
   "light": #7a7cff,
   "dark": #0026ca,
@@ -32,7 +32,7 @@
 }
 
 a {
-  color: #292929;
+  color: #ffffff;
 }
  
 .add-new {
@@ -228,4 +228,14 @@ mark {
 .home-nav {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.alert-container {
+  margin-top: 1rem;
+  display: flex;
+  
+}
+
+.sign-up {
+  color: primary;
 }
