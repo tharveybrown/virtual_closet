@@ -7,8 +7,10 @@
           <h1 class="h3 mb-2 font-weight-normal">Sign up</h1>
         </div>
       <%= render 'form' %>
-      <div class="form-group">
-        Or <%= link_to "sign in", {controller: 'sessions', action: 'new'}, class: "text-secondary"%>
+      <div class="card-body">
+        <div class="form-group">
+          Or <%= link_to "sign in", {controller: 'sessions', action: 'new'}, class: "text-primary"%>
+        </div>
       </div>
     </div>
   </div>

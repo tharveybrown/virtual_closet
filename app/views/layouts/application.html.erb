@@ -16,6 +16,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -32,6 +33,25 @@
     </nav>
     
     <div class="container-fluid">
+      <% if flash %>
+        <div class="alert-container">
+          <% flash.each do |key, value| %>
+            <% if key == "warning"  %>
+              <div class="col-md-5 alert alert-<%= key %>">
+                <h3 class="alert-heading"><mark>Failed!</mark></h3>
+                <ul>
+                <% value.each do |err|%>
+                  <li><%= err %></li>
+                
+                <% end  %>
+                </ul>
+              </div>
+            <% else  %>
+            <div class="col-md-5 alert alert-<%= key %>"><%= value %></div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end  %>  
       <%= yield %>
     </div>
   

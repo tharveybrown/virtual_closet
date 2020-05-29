@@ -21,11 +21,10 @@ class ClothesController < ApplicationController
     @user.closet.clothes << @clothe
     
     if @clothe.save 
-      flash[:alert] = "Success."
+      flash[:success] = "Successfully created!"
       redirect_to clothe_path(@clothe)
     else
-      flash[:error] = @clothe.errors.full_messages
-      flash[:alert] = "Failed."
+      flash[:warning] = @clothe.errors.full_messages
       render :new
     end
 
@@ -40,11 +39,10 @@ class ClothesController < ApplicationController
       params[:clothe].delete(:clothing_pic)
     end
     if @clothe = Clothe.update(clothe_params)
-      flash[:alert] = "Success."
+      flash[:success] = "Successfully edited!"
       redirect_to clothe_path(@clothe)
     else
-      flash[:error] = @clothe.errors.full_messages
-      flash[:alert] = "Failed."
+      flash[:warning] = @clothe.errors.full_messages
       render :edit
     end
   end
