@@ -87,6 +87,9 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.12.2)
@@ -136,6 +139,7 @@ GEM
       json (~> 1)
     open-weather-api (0.0.7)
       rest-client (~> 2.0)
+    pg (1.2.3)
     popper_js (1.16.0)
     public_suffix (4.0.5)
     puma (4.3.5)
@@ -206,7 +210,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -250,6 +253,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   dotenv
+  dotenv-rails
   figaro
   font-awesome-rails
   geocoder
@@ -258,6 +262,7 @@ DEPENDENCIES
   listen (~> 3.2)
   open-weather
   open-weather-api
+  pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.1)
   rest-client (~> 2.1)
@@ -265,7 +270,6 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
