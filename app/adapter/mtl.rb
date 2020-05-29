@@ -19,7 +19,7 @@ class Mtl
             uri.query = query
         end
     end
-    key = "5a1637b63c454cdb8ed18229d7a7da07"
+    key = Figaro.env.MTL
     # byebug
     request = Net::HTTP::Get.new(uri.request_uri)
     # Request headers
