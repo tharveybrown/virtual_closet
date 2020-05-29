@@ -1,8 +1,11 @@
 <% if @outfits %>
 
   <% @outfits.each do |o| %>
+  <h2><%= o.created_at.strftime("%m/%d/%Y") %></h2>
+ 
     <div class="card-group"> 
         <% o.clothes.each do |clothe| %>
+
             <div class="col-md-4 d-flex align-items-stretch card-column">
                 <div class="card" style="width: inherit;">
                     <div class="card-header">
@@ -25,6 +28,7 @@
             </div>
         <% end %>
   </div>
+  <hr class="my-4">
   <% end  %>
   
 <% end  %>

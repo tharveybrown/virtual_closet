@@ -7,8 +7,8 @@ class Outfit < ApplicationRecord
 
   def self.random_clothes
     clothes = []
-    clothes << Clothe.select {|c| c.clothing_type == "pant"}.sample
-    clothes << Clothe.select {|c| c.clothing_type == "shirt"}.sample
+    clothes << self.closet.clothes.select {|c| c.clothing_type == "pant"}.sample
+    clothes << self.closet.clothes.select {|c| c.clothing_type == "shirt"}.sample
     clothes
     byebug
   end
