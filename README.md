@@ -1,24 +1,17 @@
-# README
+# Virtual Closet
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Setup
 
-Things you may want to cover:
+* `bundle install`
+* `rails db:migrate`
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+You will need to get a new api key from [mirror that look](https://mirrorthatlook.com/). Once you have your key, run `bundle exec Figaro install`. 
 
-* Database creation
+In /config/application.yml, add the key as:
+`MTL: {your-api-key}`
 
-* Database initialization
+Visit localhost:3000 (`rails s`) and sign up today! This webapp will help you discover new outfits from in closet and recommend what to wear based on the weather. 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This app is deployed with heroku [here](https://vast-island-22065.herokuapp.com/).
