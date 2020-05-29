@@ -1,32 +1,24 @@
-<div class="card-group">
-    <div class="col-md-4 d-flex align-items-stretch card-column">
-        <div class="card" style="width: inherit;">
-            <div class="card-header"><h1 class="h3 mb-2 font-weight-normal">Get a Random Outfit</h1></div>
- 
-            <div class="card-body">
-                <div class="form-group">
-                    <%= button_to "Random Outfit", outfits_random_path, :class => "btn btn-primary", :method => :post %>
-                </div>    
-            </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Get a Random Outfit</h1>
+            <p class="lead">Create an outfit from your closet</p>
+            <div class="form-group">
+                <%= button_to "Random Outfit", outfits_random_path, :class => "btn btn-primary", :method => :post %>
+            </div> 
         </div>
-    </div> 
+    </div>
 
-  
-    <div class="col-md-4 d-flex align-items-stretch card-column">
-        <div class="card" style="width: inherit;">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Steal Their Look</h1>
+            <p class="lead">Add an image URL to find clothes</p>
             <%= form_for :mtl, url: "look" do |f| %>
-            <div class="card-header">
-                <h1 class="h3 mb-2 font-weight-normal">Steal Their Look</h1>
-            </div>
-
-            <div class="card-body">
-                
-                <div class="form-group">
+            <div class="form-group">
                 <%= f.label :image_url %>
                 <%= f.text_field :image_url %>
-                </div> 
-                
-                <div class="form-check">
+            </div>
+            <div class="form-check">
                 <%= f.radio_button :gender, "Male", :class => "form-check-input"%>
                 <label for="Male" class="form-check-label">Men's</label>
                 </div>
@@ -39,9 +31,8 @@
                 <div class="form-group">
                 <%= f.submit "Steal Their Look", :class => "btn btn-primary"%>
                 </div>
-                
             </div>
-        <% end %>
+            <% end %>
         </div>
     </div>
-</div>
+  
