@@ -9,7 +9,7 @@
   <% @outfits.each do |o| %>
   
     <div class="card-group"> 
-        <div class="card-group-header"><h2><%= o.closet.user.first_name %> - <%= o.created_at.strftime("%m/%d/%Y") %></h2></div>
+        <div class="col-12"><h2><%= o.closet.user.first_name %> - <%= o.created_at.strftime("%m/%d/%Y") %></h2></div>
         <% o.clothes.each do |clothe| %>
         <div class="col-md-4 d-flex align-items-stretch card-column">
         <div class="card" style="width: inherit;">
