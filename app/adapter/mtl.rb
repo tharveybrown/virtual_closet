@@ -25,7 +25,7 @@ class Mtl
     # Request headers
     request['Ocp-Apim-Subscription-Key'] = ''
     # Request headers
-    request['Ocp-Apim-Subscription-Key'] = key
+    request['Ocp-Apim-Subscription-Key'] = "5a1637b63c454cdb8ed18229d7a7da07"
     # Request body
     request.body = "{body}"
 
@@ -33,6 +33,7 @@ class Mtl
         http.request(request)
     end
     response_body = response.body
+    # byebug
     json_response = JSON.parse(response_body)
     clothes = json_response["result"][0]["products"].map do |product|
         {name: product["name"], price: product["price"], image_url: product["image"], link: product["affiliates"][0]["link"]}
