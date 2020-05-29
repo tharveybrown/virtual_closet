@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   get '/profile' => 'users#show'
   delete '/users/:id', to: 'users#destroy'
 
-  get '/users/:id/outfits' => 'users#show'
+  get '/users/:id/outfits' => 'users#outfits'
   post '/outfits/look' => 'outfits#look'
   root 'welcome#home'
+
+  post 'outfits/random' => 'outfits#random'
   # post '/outfits/create' => 'outfits#create'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

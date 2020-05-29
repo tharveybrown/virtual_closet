@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @weather = Weather.new(lon: @user.longitude, lat: @user.latitude)
   end
 
   def update
@@ -32,6 +33,10 @@ class UsersController < ApplicationController
       flash[:alert] = "Failed."
       render :edit
     end
+  end
+
+  def outfits
+    @outfits = current_user.closet.outfits
   end
   
   def destroy
