@@ -2,18 +2,15 @@ class Outfit < ApplicationRecord
   belongs_to :closet
   has_many :clothes_outfit
   has_many :clothes, through: :clothes_outfit
-  validate :require_top, :require_bottom
+  # validate :require_top, :require_bottom
 
 
   def self.random_clothes
     clothes = []
-    clothes << Clothe.select {|c| c.clothing_type == "pant"}.sample
-    clothes << Clothe.select {|c| c.clothing_type == "shirt"}.sample
+    clothes << self.closet.clothes.select {|c| c.clothing_type == "pant"}.sample
+    clothes << self.closet.clothes.select {|c| c.clothing_type == "shirt"}.sample
     clothes
-  end
-
-  def self.get_outfit(image_url, gender)
-    Mtl.get_data(image_url, gender)
+    byebug
   end
 
   private 
