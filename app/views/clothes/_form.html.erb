@@ -1,22 +1,7 @@
 
 <%= form_for @clothe, :html => {:class => 'form-group needs-validation'} do |f| %>
   
-    
-  <% if flash[:error] %>
-    
-    <div class="alert alert-danger col-lg-8">
-      <h4>
-        <%= pluralize(flash[:error].count, "error") %>
-          prohibited this post from being saved:
-      </h4>
-      <ul>
-      <% flash[:error].each do |error| %>  
-          <li><%= error %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
+
   <%= f.hidden_field :closet_id, :value => @clothe.closet_id %>
   <div class="form-group col-lg-4 <%= @clothe.errors[:clothing_type].any? ? "has-error" : "" %>">
 
