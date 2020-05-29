@@ -15,3 +15,4 @@ In /config/application.yml, add the key as:
 Visit localhost:3000 (`rails s`) and sign up today! This webapp will help you discover new outfits from in closet and recommend what to wear based on the weather. 
 
 This app is deployed with heroku [here](https://vast-island-22065.herokuapp.com/).
+
