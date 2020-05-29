@@ -25,7 +25,7 @@ class OutfitsController < ApplicationController
     def random
         @outfit = Outfit.new(closet_id: current_user.closet.id)
 
-        flash[:errors] = @outfit.errors.full_messages
+        flash[:warning] = @outfit.errors.full_messages
 
         @weather = Weather.new(lon: current_user.longitude, lat: current_user.latitude)
         @outfit.clothes_for_weather(@weather.temp) 
@@ -33,10 +33,10 @@ class OutfitsController < ApplicationController
         if @outfit.random_pants
             @outfit.clothes << @outfit.random_pants if !@outfit.clothes.detect{|c| c.clothing_type == "short"}
         else
-            flash[:errors] << "You should add some pants!"
+            flash[:warning] << "You should add some pants!"
         end
         
-        @outfit.random_shirt ? @outfit.clothes << @outfit.random_shirt : flash[:errors] << "You should add a shirt!"
+        @outfit.random_shirt ? @outfit.clothes << @outfit.random_shirt : flash[:warning] << "You should add a shirt!"
         
         if @outfit.save
             redirect_to @outfit
