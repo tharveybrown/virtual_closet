@@ -1,8 +1,9 @@
-<div class="add-new">
-  <%= button_to "Add Clothing", new_clothe_path, 
-      :class => "btn btn-primary", :method => :get %>
-</div>
 
+<div class="footer fixed-bottom">
+  <a href="/closet" class="active">Closet</a>
+  <a href="/clothes/new" class="nav-link">Add Clothing</a>
+  <a href=""></a>
+</div>
 <% if @closet %>
   <% rows = @closet.clothes.each_slice(4).to_a %>
 

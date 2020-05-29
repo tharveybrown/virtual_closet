@@ -2,32 +2,41 @@ class Outfit < ApplicationRecord
   belongs_to :closet
   has_many :clothes_outfit
   has_many :clothes, through: :clothes_outfit
-  # validate :require_top, :require_bottom
+  validates_length_of :clothes, :minimum => 2
 
 
-  def self.random_clothes
-    clothes = []
-    clothes << self.closet.clothes.select {|c| c.clothing_type == "pant"}.sample
-    clothes << self.closet.clothes.select {|c| c.clothing_type == "shirt"}.sample
-    clothes
-    byebug
+
+  def random_pants
+    self.closet.clothes.select {|c| c.clothing_type == "pant"}.sample
   end
-
-  private 
-  def require_bottom
-    bottoms = clothes.select{|c| c.clothing_type == "pant" || c.clothing_type == "short"}.count
-    if bottoms == 0 || bottoms > 1
-      errors.add(:clothing_type, "Please select bottoms")
-    end
-  end
-
-  def require_top
-    shirts = clothes.select{|c| c.clothing_type == 'shirt'}.count
-    if shirts == 0 || shirts > 1
-      errors.add(:type, "Please select one shirt")
-    end
-  end
-
   
+  def random_shirt
+    self.closet.clothes.select {|c| c.clothing_type == "shirt"}.sample
+  end
+
+  def random_shorts
+    self.closet.clothes.select {|c| c.clothing_type == "short"}.sample
+  end
+
+  def random_jacket
+    self.closet.clothes.select {|c| c.clothing_type == "jacket"}.sample
+  end
+
+  def random_sweatshirt
+    self.closet.clothes.select {|c| c.clothing_type == "sweatshirt"}.sample
+  end
+
+  def clothes_for_weather(weather)
+    case weather
+    when 50..60
+      self.random_sweatshirt ? self.clothes << self.random_sweatshirt : flash[:errors] << "You should add a sweatshirt!"
+    when 0..50
+      self.random_jacket ? self.clothes << self.random_jacket : flash[:errors] << "You should add a jacket!"
+    when 80..150
+      self.random_shorts ? self.clothes << self.random_shorts : flash[:errors] << "You should add some shorts!"
+      shorts = self.random_shorts
+    end
+  end
+
 
 end

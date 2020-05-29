@@ -1,14 +1,15 @@
-<div class="add-new">
-    <%= button_to "Add Outfit", new_outfit_path, 
-        :class => "btn btn-primary", :method => :get %>
-  </div>
 
+<div class="footer fixed-bottom">
+    <a href="/outfits" class="active">Outfits</a>
+    <a href="/outfits/new" class="nav-link">Add Outfit</a>
+    <a href="/users/:id/outfits" class="nav-link">My Outfits</a>
+</div>
 <% if @outfits %>
 
   <% @outfits.each do |o| %>
-  <h2><%= o.created_at.strftime("%m/%d/%Y") %></h2>
+  
     <div class="card-group"> 
-        <div class="card-group-header"><%= o.closet.user.first_name %></div>
+        <div class="card-group-header"><h2><%= o.closet.user.first_name %> - <%= o.created_at.strftime("%m/%d/%Y") %></h2></div>
         <% o.clothes.each do |clothe| %>
         <div class="col-md-4 d-flex align-items-stretch card-column">
         <div class="card" style="width: inherit;">

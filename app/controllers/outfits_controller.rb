@@ -23,37 +23,27 @@ class OutfitsController < ApplicationController
     end
     
     def random
-        @closet = current_user.closet
         @outfit = Outfit.new(closet_id: current_user.closet.id)
-        shirt = @closet.clothes.select {|c| c.clothing_type == "shirt"}.sample
-        pants = @closet.clothes.select {|c| c.clothing_type == "pant"}.sample
+
+        flash[:errors] = @outfit.errors.full_messages
 
         @weather = Weather.new(lon: current_user.longitude, lat: current_user.latitude)
-        if @weather.temp < 60 && @weather.temp > 50
-            sweatshirt = @closet.clothes.select {|c| c.clothing_type == "sweatshirt"}.sample
-            @outfit.clothes << sweatshirt
-        elsif @weather.temp < 50
-            jacket = @closet.clothes.select {|c| c.clothing_type == "jacket"}.sample
-            @outfit.clothes << jacket
-        elsif @weather.temp > 80
-            shorts = @closet.clothes.select {|c| c.clothing_type == "short"}.sample
-            @outfit.clothes << shorts
-        end
-        # byebug
-
-        if shirt == nil || pants == nil
-            flash[:errors] = "Not enough clothes for a random outfit"
-            return redirect_to @closet
+        @outfit.clothes_for_weather(@weather.temp) 
+        
+        if @outfit.random_pants
+            @outfit.clothes << @outfit.random_pants if !@outfit.clothes.detect{|c| c.clothing_type == "short"}
+        else
+            flash[:errors] << "You should add some pants!"
         end
         
-        @outfit.clothes << shirt
-        @outfit.clothes << pants unless @outfit.clothes.detect{|c| c.clothing_type == "short"}
-
+        @outfit.random_shirt ? @outfit.clothes << @outfit.random_shirt : flash[:errors] << "You should add a shirt!"
+        
         if @outfit.save
             redirect_to @outfit
         else
-            redirect_to new_outfit_path
+            redirect_to @outfit.closet
         end
+        
     end
 
 
